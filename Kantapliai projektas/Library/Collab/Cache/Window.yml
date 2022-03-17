@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
-    m_Keys:
-    - 
-    m_Values: 01
+    m_Keys: []
+    m_Values: 
   RevisionSummary: 
   ChangesSearchValue: 
-  SelectedHistoryRevision: beddbb22a8e2217d17dcdb012aad444398f83243
+  SelectedHistoryRevision: 
   HistoryPageNumber: 0
-  TabIndex: 1
+  TabIndex: 0
