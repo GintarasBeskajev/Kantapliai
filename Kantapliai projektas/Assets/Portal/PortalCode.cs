@@ -11,5 +11,9 @@ public class PortalCode : MonoBehaviour
         {
             SceneManager.LoadScene("ParkourGameStart");
         }
+        else if (collision.gameObject.name == "Portal 3")
+        {
+            SceneManager.LoadScene("DodgeGame");
+        }
     }
 }
