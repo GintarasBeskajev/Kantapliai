@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DodgeGame.unity
     guid: 0c327f912f60fc34a8029b72572ad871
+  - enabled: 1
+    path: Assets/Scenes/Hub.unity
+    guid: 29a2f805d88cc4b47a4290f854115c97
+  - enabled: 1
+    path: Assets/Scenes/ParkourGameStart.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/WaveSurvivalGame.unity
+    guid: 95a6501d361760f4dbf801cf4da5cb45
   m_configObjects: {}
