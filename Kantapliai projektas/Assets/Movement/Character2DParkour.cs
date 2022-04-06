@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Character2DParkour : MonoBehaviour
 {
     Rigidbody2D rigBody;
     public float jumpSpeed = 10f;
     public float movementSpeed = 10f;
+    [SerializeField] private float maxJumpCount = 1f;
+    public float Health = 100f;
+    private float currentJumps = 0f;
     bool isGrounded;
     float horizontal;
 
@@ -19,6 +23,11 @@ public class Character2DParkour : MonoBehaviour
 
     void Update()
     {
+        if(Health <= 0)
+        {
+            SceneManager.LoadScene("Hub");
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal");
         Jump();
     }
@@ -37,10 +46,12 @@ public class Character2DParkour : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded || Input.GetButtonDown("Jump") && currentJumps < maxJumpCount)
         {
+            rigBody.velocity = Vector2.zero;
             rigBody.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
             isGrounded = false;
+            currentJumps++;
         }
     }
 
@@ -49,6 +60,13 @@ public class Character2DParkour : MonoBehaviour
         if (other.gameObject.tag == "Ground" && isGrounded == false)
         {
             isGrounded = true;
+            currentJumps = 0f;
+        }
+
+        if (other.gameObject.tag == "Lava")
+        {
+            Health = Health - 20;
+            transform.position = new Vector3(-8, -4, 0);
         }
     }
 }
